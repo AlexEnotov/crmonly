@@ -10,9 +10,20 @@
   <body>
     <?php include 'layout/navbar.php' ?>
     <div class="container-fluid">
-    	
+    	<div class="card">
+    		<div class="card-header">
+    			<div class="row">
+    				<div class="col-5">Subject</div>
+    				<div class="col-2">Priority</div>
+    				<div class="col-2">Status</div>
+    				<div class="col-2">Date</div>
+    				<div class="col-2">Executor</div>
+    			</div>
+    		</div>
+    		<div class="card-body"></div>
+    	</div>
     </div>
-    <footer>123</footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
