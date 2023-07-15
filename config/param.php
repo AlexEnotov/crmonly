@@ -1,0 +1,6 @@
+<?php
+$sitename = 'tranquil-crm';
+
+
+
+?>
