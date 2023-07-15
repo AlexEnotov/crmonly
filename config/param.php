@@ -1,5 +1,5 @@
 <?php
-$sitename = 'tranquil-crm';
+$sitename = 'Tranquil CRM';
 
 
 
