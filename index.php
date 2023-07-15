@@ -14,9 +14,9 @@
     		<div class="card-header">
     			<div class="row">
     				<div class="col-5">Subject</div>
-    				<div class="col-2">Priority</div>
-    				<div class="col-2">Status</div>
-    				<div class="col-2">Date</div>
+    				<div class="col-1">Priority</div>
+    				<div class="col-1">Status</div>
+    				<div class="col-1">Date</div>
     				<div class="col-2">Executor</div>
     			</div>
     		</div>
