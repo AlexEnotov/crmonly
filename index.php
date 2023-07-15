@@ -8,19 +8,44 @@
     <link rel="stylesheet" href="config/style.css">
   </head>
   <body>
-    <?php include 'layout/navbar.php' ?>
-    <div class="container-fluid">
-    	<div class="card">
+    <?php include 'layout/navbar.php'; ?>
+    <?php include 'config/db.php';
+    $sql = $pdo->prepare("SELECT * FROM TicketTask tt ");
+	$sql->execute();
+	$resu = $sql->fetchAll(PDO::FETCH_OBJ);
+    ?>
+
+    <div class="container">
+    	<div class="card mt-3">
     		<div class="card-header">
     			<div class="row">
     				<div class="col-5">Subject</div>
     				<div class="col-1">Priority</div>
     				<div class="col-1">Status</div>
-    				<div class="col-1">Date</div>
+    				<div class="col-2">Date</div>
     				<div class="col-2">Executor</div>
     			</div>
     		</div>
-    		<div class="card-body"></div>
+    		<?php foreach($resu as $res) {?>
+    		<div class="card-body border-bottom">
+    			<div class="row">
+    				<div class="col-5"><span class="badge bg-danger"><?php if (strlen($res->id)==1) {echo '#000'.$res->id;} elseif (strlen($res->id)==2) {echo '#00'.$res->id;} elseif (strlen($res->id)==3) {echo '#0'.$res->id;} else {echo '#'.$res->id;}?></span> <?=$res->Name?></div>
+    				<div class="col-1"><div style="color: <?php if($res->Priority == 'critical') {echo 'red';} elseif ($res->Priority == 'high') {echo 'blue';} ?>; text-transform: uppercase;"><?=$res->Priority?></div></div>
+    				<div class="col-1"><div style="text-transform:uppercase; color:green;"><?=$res->Status?></div></div>
+    				<div class="col-2"><?= date('Y-m-d') ?></div>
+    				<div class="col-2">One Two Three</div>
+    			</div>
+    		</div>
+    		<?php } ?>
+    		<div class="card-body border-bottom">
+    			<div class="row">
+    				<div class="col-5"><span class="badge bg-danger">#0001</span> Пример заявки</div>
+    				<div class="col-1"><div style="color: red; text-transform: uppercase;">Critical</div></div>
+    				<div class="col-1"><div style="text-transform:uppercase;">open</div></div>
+    				<div class="col-2"><?= date('Y-m-d') ?></div>
+    				<div class="col-2">One Two Three</div>
+    			</div>
+    		</div>
     	</div>
     </div>
 
