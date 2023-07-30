@@ -51,7 +51,7 @@
 				<span class="count">12</span>
 			</a>
 			<a href="#" class="profile">
-				<img src="" alt="">
+				<img src="image/logo.jpg" alt="">
 			</a>
 		</nav>
 
@@ -126,7 +126,7 @@
 						<tbody>
 							<tr>
 								<td>
-									<img src="" alt="">
+									<img src="image/user.png" alt="">
 									<p>John Doe</p>
 								</td>
 								<td>30-07-2023</td>
@@ -134,7 +134,7 @@
 							</tr>
 							<tr>
 								<td>
-									<img src="" alt="">
+									<img src="image/user.png" alt="">
 									<p>John Doe</p>
 								</td>
 								<td>30-07-2023</td>
@@ -142,7 +142,7 @@
 							</tr>
 							<tr>
 								<td>
-									<img src="" alt="">
+									<img src="image/user.png" alt="">
 									<p>John Doe</p>
 								</td>
 								<td>30-07-2023</td>

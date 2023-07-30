@@ -362,6 +362,10 @@ body {
 	font-weight: 500;
 }
 
+.content main .header .report:hover{
+	background: var(--dark);	
+}
+
 .content main .insights{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
