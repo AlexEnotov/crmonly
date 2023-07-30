@@ -1,55 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="config/style.css">
-  </head>
-  <body>
-    <?php include 'layout/navbar.php'; ?>
-    <?php include 'config/db.php';
-    $sql = $pdo->prepare("SELECT * FROM TicketTask tt ");
-	$sql->execute();
-	$resu = $sql->fetchAll(PDO::FETCH_OBJ);
-    ?>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="style.css">
+	<title>Dashboard Design</title>
+</head>
+<body>
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<a href="#" class="logo">
+			<i class='bx bx-code-alt'></i>
+			<span class="logo-name"><span>Open</span>Crm</span>
+		</a>
+		<ul class="side-menu">
+			<li><a href="#"><i class='bx bxs-dashboard' ></i>Dashboard</a></li>
+			<li><a href="#"><i class='bx bx-store-alt' ></i>Shop</a></li>
+			<li class="active"><a href="#"><i class='bx bx-analyse' ></i>Analytics</a></li>
+			<li><a href="#"><i class='bx bx-message-square-dots' ></i>Tickets</a></li>
+			<li><a href="#"><i class='bx bx-group' ></i>Users</a></li>
+			<li><a href="#"><i class='bx bx-group' ></i>Settings</a></li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bx-log-out-circle' ></i>
+					Logout
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- End of Sidebar -->
 
-    <div class="container">
-    	<div class="card mt-3">
-    		<div class="card-header">
-    			<div class="row">
-    				<div class="col-5">Subject</div>
-    				<div class="col-1">Priority</div>
-    				<div class="col-1">Status</div>
-    				<div class="col-2">Date</div>
-    				<div class="col-2">Executor</div>
-    			</div>
-    		</div>
-    		<?php foreach($resu as $res) {?>
-    		<div class="card-body border-bottom">
-    			<div class="row">
-    				<div class="col-5"><span class="badge bg-danger"><?php if (strlen($res->id)==1) {echo '#000'.$res->id;} elseif (strlen($res->id)==2) {echo '#00'.$res->id;} elseif (strlen($res->id)==3) {echo '#0'.$res->id;} else {echo '#'.$res->id;}?></span> <?=$res->Name?></div>
-    				<div class="col-1"><div style="color: <?php if($res->Priority == 'critical') {echo 'red';} elseif ($res->Priority == 'high') {echo 'blue';} ?>; text-transform: uppercase;"><?=$res->Priority?></div></div>
-    				<div class="col-1"><div style="text-transform:uppercase; color:green;"><?=$res->Status?></div></div>
-    				<div class="col-2"><?= date('Y-m-d') ?></div>
-    				<div class="col-2">One Two Three</div>
-    			</div>
-    		</div>
-    		<?php } ?>
-    		<div class="card-body border-bottom">
-    			<div class="row">
-    				<div class="col-5"><span class="badge bg-danger">#0001</span> Пример заявки</div>
-    				<div class="col-1"><div style="color: red; text-transform: uppercase;">Critical</div></div>
-    				<div class="col-1"><div style="text-transform:uppercase;">open</div></div>
-    				<div class="col-2"><?= date('Y-m-d') ?></div>
-    				<div class="col-2">One Two Three</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
+	<!-- Main Content -->
+	<div class="content">
+		<!-- Navbar -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button class="search-btn" type="submit"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="theme-toggle" hidden>
+			<label for="theme-toggle" class="theme-toggle"></label>
+			<a href="#" class="notif">
+				<i class='bx bx-bell'></i>
+				<span class="count">12</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="" alt="">
+			</a>
+		</nav>
+
+		<!-- End of Navbar -->
+		<main>
+			<div class="header">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li><a href="#">
+							Analytics
+						</a></li>
+						/
+						<li><a href="#" class="active">Shop</a></li>
+					</ul>
+				</div>
+				<a href="#" class="report">
+					<i class='bx bx-cloud-download' ></i>
+					<span>Download CSV</span>
+				</a>
+			</div>
+
+			<!-- Insights -->
+			<ul class="insights">
+				<li>
+					<i class='bx bx-calendar-check' ></i>
+					<span class="info">
+						<h3>1,074</h3>
+						<p>Paid Order</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bx-show-alt' ></i>
+					<span class="info">
+						<h3>3,944</h3>
+						<p>Site Visit</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bx-line-chart' ></i>
+					<span class="info">
+						<h3>14,721</h3>
+						<p>Searches</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bx-dollar-circle' ></i>
+					<span class="info">
+						<h3>$6,742</h3>
+						<p>Total Sales</p>
+					</span>
+				</li>
+			</ul>
+			<!-- End of Insights -->
+
+			<div class="bottom-data">
+				<div class="orders">
+					<div class="header">
+						<i class='bx bx-receipt' ></i>
+						<h3>Recent Orders</h3>
+						<i class='bx bx-filter' ></i>
+						<i class='bx bx-search' ></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>User</th>
+								<th>Order Date</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="" alt="">
+									<p>John Doe</p>
+								</td>
+								<td>30-07-2023</td>
+								<td><span class="status completed">Completed</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="" alt="">
+									<p>John Doe</p>
+								</td>
+								<td>30-07-2023</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="" alt="">
+									<p>John Doe</p>
+								</td>
+								<td>30-07-2023</td>
+								<td><span class="status process">Processing</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Reminders -->
+				<div class="reminders">
+					<div class="header">
+						<i class='bx bx-note' ></i>
+						<h3>Remiders</h3>
+						<i class='bx bx-filter' ></i>
+						<i class='bx bx-plus' ></i>
+					</div>
+					<ul class="task-list">
+						<li class="completed">
+							<div class="task-title">
+								<i class='bx bx-check-circle' ></i>
+								<p>Start Our Metting</p>
+								
+							</div>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<div class="task-title">
+								<i class='bx bx-check-circle' ></i>
+								<p>Analuse Our Site</p>
+							</div>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<div class="task-title">
+								<i class='bx bx-x-circle' ></i>
+								<p>Play Footbal</p>
+							</div>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+					</ul>
+				</div>
+				<!-- End of Reminders -->
+
+			</div>
+
+		</main>
+	</div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  </body>
+	<script src="index.js"></script>
+</body>
 </html>
